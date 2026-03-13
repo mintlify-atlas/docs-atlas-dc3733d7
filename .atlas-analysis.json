@@ -1,0 +1,71 @@
+{
+  "projectType": "general",
+  "projectName": "Shem Zakem Professional Portfolio",
+  "projectDescription": "Professional portfolio showcasing expertise in defense/aerospace engineering, enterprise product management, and strategic technical leadership.",
+  "theme": "linden",
+  "primaryColor": "#00aeef",
+  "lightColor": "#f7931e",
+  "darkColor": "#0a0c10",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Overview",
+        "pages": [
+          "introduction",
+          "professional-summary"
+        ]
+      },
+      {
+        "group": "Defense & Aerospace",
+        "pages": [
+          "defense/tactical-leadership",
+          "defense/boeing-engineering",
+          "defense/jadc2-expertise",
+          "defense/tactical-edge-ai"
+        ]
+      },
+      {
+        "group": "Enterprise & Product",
+        "pages": [
+          "enterprise/product-leadership",
+          "enterprise/cloud-saas",
+          "enterprise/platform-modernization",
+          "enterprise/data-architecture"
+        ]
+      },
+      {
+        "group": "Innovation",
+        "pages": [
+          "innovation/green-box-batteries",
+          "innovation/patent-us9276418",
+          "innovation/techstars"
+        ]
+      },
+      {
+        "group": "Resources",
+        "pages": [
+          "resources/resumes",
+          "resources/contact"
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Strategic Technical Leadership with 82nd Airborne & Boeing aerospace experience",
+    "Enterprise SaaS/PaaS modernization delivering $5.7M+ in operational savings",
+    "JADC2 architectures and real-time systems for mission-critical operations",
+    "Hardware startup founder with U.S. Patent #9,276,418 and Techstars validation",
+    "Cloud platform migrations across global business lines with zero downtime",
+    "AI-powered data workflows increasing partner satisfaction by 32%"
+  ],
+  "publicApiSurface": [
+    "Defense & Aerospace Engineering Leadership",
+    "Enterprise Product Management & SaaS Strategy",
+    "JADC2 Multi-Domain Operations Architecture",
+    "Real-Time Systems & Simulation (SIL/HIL/VIL)",
+    "Cloud Platform Modernization (AWS/Azure)",
+    "IoT Hardware Integration & Patent Portfolio",
+    "Agile/Lean Process Optimization",
+    "Strategic Capability Development"
+  ]
+}
