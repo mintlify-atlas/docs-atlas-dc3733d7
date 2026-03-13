@@ -1,0 +1,295 @@
+---
+title: 'Tactical Edge AI Emulator (Air-Gapped)'
+description: 'Offline AI deployment using Kubernetes, Zarf, and Docker for disconnected tactical networks'
+icon: 'microchip'
+---
+
+## Defense Unicorns Strategy Demonstration
+
+The **Tactical Edge AI Emulator** is a fully functional demonstration of deploying modern AI capabilities to **air-gapped, disconnected tactical networks**. This project validates the precise DoD packaging pipeline required to bypass Authority to Operate (ATO) bottlenecks and physically deliver software to contested environments.
+
+<Card title="View on GitHub" icon="github" href="https://github.com/szakem81/Tactical-Leapfrog-Emulator">
+  Complete source code, architecture documentation, and deployment instructions
+</Card>
+
+<Note>
+Air-gapped deployments are critical for operations in denied, degraded, intermittent, and limited (DDIL) communication environments where traditional cloud connectivity is unavailable or prohibited.
+</Note>
+
+## The Tactical Edge Challenge
+
+### Why Air-Gapped AI Matters
+
+Modern military operations increasingly require AI/ML capabilities at the tactical edge:
+
+<CardGroup cols={2}>
+  <Card title="Zero Network Connectivity" icon="ban">
+    Classified networks, submarines, aircraft, and forward operating bases without internet access
+  </Card>
+  <Card title="Contested Environments" icon="satellite-dish">
+    Operations where adversaries can jam, intercept, or deny communications
+  </Card>
+  <Card title="Security Requirements" icon="lock">
+    Sensitive operations requiring complete isolation from external networks
+  </Card>
+  <Card title="Physical Delivery" icon="truck">
+    Software and models must be physically transported via secure media
+  </Card>
+</CardGroup>
+
+### The ATO Bottleneck Problem
+
+Traditional software delivery faces severe challenges in DoD environments:
+
+- **Authority to Operate (ATO) Process**: Months or years to certify new software
+- **Network Dependencies**: Cloud-native applications assume constant connectivity
+- **Update Cycles**: Patching and updating air-gapped systems is operationally complex
+- **Vendor Lock-In**: Proprietary solutions that don't work offline
+
+<Warning>
+The DoD's traditional software acquisition and accreditation processes cannot keep pace with the rapid evolution of AI/ML capabilities. New deployment paradigms are required.
+</Warning>
+
+## Technical Architecture
+
+### Kubernetes at the Edge
+
+The Tactical Edge AI Emulator leverages **K3s**, a lightweight Kubernetes distribution optimized for edge and IoT environments:
+
+- **Minimal Resource Footprint**: Runs on resource-constrained tactical hardware
+- **Single-Binary Distribution**: Easy to package and physically transport
+- **Air-Gap Ready**: No external dependencies or internet connectivity required
+- **ARM Support**: Compatible with tactical edge devices and embedded systems
+
+#### Why K3s for Tactical Deployments?
+
+<CardGroup cols={3}>
+  <Card title="Small Size" icon="down-left-and-up-right-to-center">
+    < 100 MB binary vs. full Kubernetes
+  </Card>
+  <Card title="Low Resources" icon="microchip">
+    Runs on 512MB RAM tactical systems
+  </Card>
+  <Card title="Offline First" icon="plug-circle-xmark">
+    No internet required for deployment
+  </Card>
+</CardGroup>
+
+### Zarf: Package, Deliver, Deploy
+
+**Zarf** is the key technology enabling physical software delivery to disconnected networks:
+
+- **Self-Contained Packages**: All dependencies bundled into single transferable artifact
+- **Declarative Deployment**: Infrastructure-as-code for reproducible installations
+- **Offline Registry**: Built-in container registry for air-gapped environments
+- **Gitops Ready**: Supports modern DevOps workflows in disconnected environments
+
+<Info>
+Zarf was developed by Defense Unicorns specifically to solve the DoD's air-gapped deployment problem. It's become the de facto standard for tactical edge software delivery.
+</Info>
+
+### Docker Container Strategy
+
+Containerization enables consistent deployment across diverse tactical hardware:
+
+- **Reproducible Builds**: Identical runtime environment from development to tactical edge
+- **Dependency Isolation**: All libraries and dependencies packaged with application
+- **Version Control**: Precise tracking of software versions deployed to each platform
+- **Security Scanning**: Vulnerability scanning before physical delivery
+
+## Deployment Workflow
+
+### From Development to Tactical Edge
+
+<Steps>
+  <Step title="Build Container Images">
+    Package AI models, inference engines, and dependencies into Docker containers
+  </Step>
+  <Step title="Create Zarf Package">
+    Bundle containers, Kubernetes manifests, and configurations into single Zarf package
+  </Step>
+  <Step title="Test in Emulated Environment">
+    Validate complete deployment in air-gapped emulator (no internet access)
+  </Step>
+  <Step title="Physical Media Transfer">
+    Copy Zarf package to secure storage device (encrypted USB, SIPR disc, etc.)
+  </Step>
+  <Step title="Tactical Deployment">
+    Transport physical media to operational environment via approved channels
+  </Step>
+  <Step title="Offline Installation">
+    Deploy Zarf package to K3s cluster without any network connectivity
+  </Step>
+  <Step title="Operational Validation">
+    Verify AI inference and system functionality in tactical environment
+  </Step>
+</Steps>
+
+## Emulator Architecture
+
+### Simulating Disconnected Operations
+
+The Tactical Edge AI Emulator creates a fully isolated environment replicating actual air-gapped conditions:
+
+```yaml
+# Emulated Environment Characteristics
+Network:
+  External Connectivity: None
+  Internal Networking: Isolated K3s cluster
+  DNS Resolution: Local only
+  
+Storage:
+  Container Images: Offline registry
+  AI Models: Local filesystem
+  Data Persistence: Hostpath volumes
+  
+Compute:
+  Container Runtime: Docker (air-gap compatible)
+  Orchestration: K3s (lightweight Kubernetes)
+  Resource Limits: Tactical hardware constraints
+```
+
+<Accordion title="Key Components">
+  - **K3s Cluster**: Lightweight Kubernetes for edge computing
+  - **Zarf Registry**: Offline container image storage
+  - **AI Inference Engine**: TensorFlow/PyTorch/ONNX runtime
+  - **Model Storage**: Persistent volumes for ML models
+  - **Monitoring Stack**: Prometheus/Grafana for system health
+</Accordion>
+
+## Authority to Operate (ATO) Considerations
+
+### Accelerating Security Accreditation
+
+This deployment approach addresses key ATO challenges:
+
+- **Immutable Infrastructure**: Containerized deployments reduce attack surface
+- **Supply Chain Security**: Cryptographic signing and verification of packages
+- **Dependency Transparency**: Complete bill of materials (SBOM) for security review
+- **Reproducible Builds**: Identical artifacts for security testing and deployment
+
+<Check>
+Zarf packages include Software Bill of Materials (SBOM) and can be scanned for vulnerabilities before physical delivery, streamlining the ATO process.
+</Check>
+
+### STIG Compliance and Hardening
+
+Implementation follows DoD Security Technical Implementation Guides (STIGs):
+
+- **Container Hardening**: Following DoD Container Hardening STIG
+- **Kubernetes Security**: Implementing DISA Kubernetes STIG controls
+- **Access Control**: Role-based access control (RBAC) and least-privilege principles
+- **Audit Logging**: Comprehensive logging for security monitoring and compliance
+
+## Real-World Applications
+
+### Tactical Edge Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Submarine Operations" icon="water">
+    AI-powered sonar analysis and threat detection without satellite uplink
+  </Card>
+  <Card title="Forward Operating Bases" icon="campground">
+    Image recognition and ISR analysis at remote tactical locations
+  </Card>
+  <Card title="Aircraft Systems" icon="jet-fighter">
+    In-flight AI processing without ground station connectivity
+  </Card>
+  <Card title="Special Operations" icon="user-secret">
+    Sensitive missions requiring complete electromagnetic silence
+  </Card>
+  <Card title="Coalition Networks" icon="handshake">
+    Deploying approved AI to partner nation systems with limited connectivity
+  </Card>
+  <Card title="Disaster Response" icon="house-crack">
+    Emergency operations where communications infrastructure is destroyed
+  </Card>
+</CardGroup>
+
+## Defense Unicorns Strategy
+
+### Modern Software Delivery for DoD
+
+This project demonstrates **Defense Unicorns' vision** for transforming DoD software delivery:
+
+- **Platform One Integration**: Compatible with DoD's centralized DevSecOps platform
+- **Continuous ATO**: Streamlined security accreditation through automation and standardization
+- **Vendor Agnostic**: Open-source tools reducing dependency on proprietary solutions
+- **Community Driven**: Leveraging open-source community for rapid innovation
+
+<Info>
+Defense Unicorns is pioneering the modernization of DoD software delivery, enabling commercial DevOps practices in classified and air-gapped environments.
+</Info>
+
+## Technical Capabilities Demonstrated
+
+### Skills and Expertise
+
+This project showcases proficiency in:
+
+<Accordion title="Container Orchestration">
+  - Kubernetes/K3s administration and optimization
+  - Docker containerization and image optimization
+  - Helm charts and Kubernetes operators
+  - Resource management and scaling strategies
+</Accordion>
+
+<Accordion title="Air-Gapped Deployment">
+  - Zarf package creation and management
+  - Offline container registry configuration
+  - Disconnected gitops workflows
+  - Physical media delivery processes
+</Accordion>
+
+<Accordion title="AI/ML Operations">
+  - Model packaging and versioning
+  - Inference engine deployment and optimization
+  - GPU acceleration in containerized environments
+  - Model monitoring and performance tracking
+</Accordion>
+
+<Accordion title="DoD Security Requirements">
+  - STIG compliance and hardening
+  - ATO preparation and documentation
+  - Supply chain security and SBOM generation
+  - Zero trust architecture principles
+</Accordion>
+
+## GitHub Repository
+
+### Explore the Architecture
+
+The complete source code, documentation, and deployment instructions are available:
+
+<Card 
+  title="Tactical Leapfrog Emulator on GitHub" 
+  icon="github" 
+  href="https://github.com/szakem81/Tactical-Leapfrog-Emulator"
+>
+  Full project repository including:
+  - Deployment scripts and configuration
+  - Architecture diagrams and documentation
+  - Zarf package definitions
+  - Testing and validation procedures
+</Card>
+
+<Warning>
+This emulator is for demonstration and testing purposes. Operational deployments require appropriate security accreditation and authorization for specific environments.
+</Warning>
+
+## Related Defense Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Tactical Leadership" href="/defense/tactical-leadership" icon="shield-halved">
+    82nd Airborne operational experience
+  </Card>
+  <Card title="Boeing Engineering" href="/defense/boeing-engineering" icon="plane">
+    Real-time safety-critical systems
+  </Card>
+  <Card title="JADC2 Expertise" href="/defense/jadc2-expertise" icon="network-wired">
+    Multi-domain operations architecture
+  </Card>
+  <Card title="IoT & Edge Computing" icon="microchip">
+    Distributed systems and edge deployment
+  </Card>
+</CardGroup>
